@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Teko&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  overflow: hidden !important;
+  width: 100vw;
+  height: 100vh;
+  cursor: none;
+}
+body {
+  background: #01070a;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden !important;
+}
+.scene i {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: -250px;
+  animation: star linear infinite;
+  pointer-events: none;
+}
+@keyframes star {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(200vh);
+  }
+}
+.rocketimg {
+  width: 40px;
+  animation: vibrate 0.1s ease infinite;
+}
+.rocket {
+  height: 50px;
+  width: 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 999;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+@keyframes vibrate {
+  0%,
+  100% {
+    transform: translateY(-1px);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+}
+.rocket::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 100px;
+  background: linear-gradient(#00d0ff, transparent);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  animation: flame 0.1s ease-out infinite;
+  filter: blur(1.5px);
+}
+.rocket::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 100px;
+  background: linear-gradient(#00d0ff, transparent);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  animation: flame 0.1s ease-out infinite;
+  filter: blur(10px);
+}
+@keyframes flame {
+  0%,
+  100% {
+    height: 150px;
+  }
+  50% {
+    height: 140px;
+  }
+}
+
+.shot {
+  position: absolute;
+  height: 10px;
+  background-color: white;
+  border-radius: 50px;
+  pointer-events: none;
+}
+.shot::before {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 5px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: linear-gradient(rgb(250, 79, 0), transparent);
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  pointer-events: none;
+  filter: blur(2px);
+}
+.enemy {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 99999;
+  pointer-events: none;
+}
+.score {
+  background: transparent;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  color: white;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+  font-family: "Teko", sans-serif;
+  pointer-events: none;
+}
+.score::before {
+  content: "Score";
+  position: absolute;
+  left: 50%;
+  padding: 10px;
+  transform: translate(-50%, -25px);
+  font-size: 15px;
+  color: white;
+  font-family: "Teko", sans-serif;
+  pointer-events: none;
+}
+.begin {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-family: "Teko", sans-serif;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -500%);
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 1s;
+}
